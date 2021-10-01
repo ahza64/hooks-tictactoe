@@ -45,11 +45,27 @@ const App = () => {
 
   return (
     <div className='app'>
-      <h1>TIC TAC TOE</h1>
+      <h1>TIC <span className="text-green">TAC</span> TOE</h1>
       <StatusMessage winner={winner} current={current} />
-      <Board board={current.board} handleSquareClick={handleSquareClick} winningSquares={winningSquares} />
-      <button type='button' onClick={onNewGame}>Start new game</button>
-      <History history={history} moveTo={moveTo} currentMove={currentMove} />
+      <Board
+        board={current.board}
+        handleSquareClick={handleSquareClick}
+        winningSquares={winningSquares}
+      />
+      <button
+        className={`btn-reset ${winner ? 'active' : ''}`}
+        type='button'
+        onClick={onNewGame}
+      >
+        Start new game
+      </button>
+      <h4 style={{fontWeight: 'normal'}}>Current Game History</h4>
+      <History
+        history={history}
+        moveTo={moveTo}
+        currentMove={currentMove}
+      />
+      <div className="bg-balls" />
     </div>
   )
 };
